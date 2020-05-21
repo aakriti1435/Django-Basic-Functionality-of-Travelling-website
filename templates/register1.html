@@ -1,0 +1,62 @@
+{% load static %} {% static "styles" as CSS %}{% static "images" as urll %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>RegistrationForm_v1 by Colorlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <!--<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">-->
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="{{CSS}}/registercss.css">
+</head>
+
+<body>
+
+    <div class="wrapper" style="background-image: url('http://getwallpapers.com/wallpaper/full/f/e/5/60113.jpg#.XYYYA0H180s.link');">
+        <div class="inner">
+            <div class="image-holder">
+                <img src="{{urll}}/imgg.jpg" alt="">
+            </div>
+            <form action="register" method="POST">
+                {% csrf_token %}
+                <h3>Registration Form</h3>
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" class="form-control" name="first_name">
+                    <input type="text" placeholder="Last Name" class="form-control" name="last_name">
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Username" class="form-control" name="username">
+                    <!--<i class="zmdi zmdi-account"></i>-->
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Email Address" class="form-control" name="email">
+                    <!--<i class="zmdi zmdi-email"></i>-->
+                </div>
+
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Password" class="form-control" name="password1">
+                    <!--<i class="zmdi zmdi-lock"></i>-->
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Confirm Password" class="form-control" name="password2">
+                    <!--<i class="zmdi zmdi-lock"></i>-->
+                </div>
+                <button type="submit">Register
+						<!--<i class="zmdi zmdi-arrow-right"></i>-->
+					</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        {% for message in messages %}
+        <h4>{{message}}</h4>
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>

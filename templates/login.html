@@ -1,0 +1,28 @@
+<!-- Simple Login Page-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log In !</title>
+</head>
+
+<body>
+    <form action="login" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="User Name" name="username"><br><br>
+        <input type="password" placeholder="Password" name="password"><br><br>
+        <input type="submit">
+    </form>
+</body>
+
+<div>
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
+</div>
+
+</html>
